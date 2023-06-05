@@ -45,8 +45,7 @@ class _MainScreenState extends State<MainScreen> {
       body: StreamBuilder<List<Movie>?>(
           stream: MovieBlocProvider.of(context).moviesStream,
           builder: (context, AsyncSnapshot<List<Movie>?> snapshot) {
-            if (snapshot.data == null ||
-                snapshot.connectionState == ConnectionState.waiting) {
+            if (snapshot.data == null || snapshot.connectionState == ConnectionState.waiting) {
               return const Center(child: CircularProgressIndicator());
             }
             return _renderMovies(snapshot.data ?? [], context);
@@ -75,8 +74,7 @@ class _MainScreenState extends State<MainScreen> {
       },
       child: CachedNetworkImage(
         imageUrl: '${Endpoints.images}${movie.posterPath}',
-        errorWidget: (context, url, error) =>
-            const Icon(Icons.error_outline_rounded),
+        errorWidget: (context, url, error) => const Icon(Icons.error_outline_rounded),
         fit: BoxFit.cover,
       ),
     );

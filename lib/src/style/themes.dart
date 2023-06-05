@@ -9,18 +9,12 @@ final darkTheme = ThemeData(
     appBarTheme: const AppBarTheme(backgroundColor: darkAppBarBackground),
     iconTheme: const IconThemeData(color: darkTextColor),
     textTheme: const TextTheme(
-      headlineSmall: TextStyle(
-          color: darkTextColor, fontSize: 14, fontWeight: FontWeight.bold),
-      headlineMedium: TextStyle(
-          color: darkTextColor, fontSize: 16, fontWeight: FontWeight.bold),
-      headlineLarge: TextStyle(
-          color: darkTextColor, fontSize: 18, fontWeight: FontWeight.bold),
-      bodySmall: TextStyle(
-          color: darkTextColor, fontSize: 8, fontWeight: FontWeight.w500),
-      bodyMedium: TextStyle(
-          color: darkTextColor, fontSize: 12, fontWeight: FontWeight.w500),
-      bodyLarge: TextStyle(
-          color: darkTextColor, fontSize: 14, fontWeight: FontWeight.w500),
+      headlineSmall: TextStyle(color: darkTextColor, fontSize: 14, fontWeight: FontWeight.bold),
+      headlineMedium: TextStyle(color: darkTextColor, fontSize: 16, fontWeight: FontWeight.bold),
+      headlineLarge: TextStyle(color: darkTextColor, fontSize: 18, fontWeight: FontWeight.bold),
+      bodySmall: TextStyle(color: darkTextColor, fontSize: 8, fontWeight: FontWeight.w500),
+      bodyMedium: TextStyle(color: darkTextColor, fontSize: 12, fontWeight: FontWeight.w500),
+      bodyLarge: TextStyle(color: darkTextColor, fontSize: 14, fontWeight: FontWeight.w500),
     ));
 
 final lightTheme = ThemeData(
@@ -31,18 +25,12 @@ final lightTheme = ThemeData(
   appBarTheme: const AppBarTheme(backgroundColor: lightAppBarBackground),
   iconTheme: const IconThemeData(color: lightTextColor),
   textTheme: const TextTheme(
-    headlineSmall: TextStyle(
-        color: lightTextColor, fontSize: 14, fontWeight: FontWeight.bold),
-    headlineMedium: TextStyle(
-        color: lightTextColor, fontSize: 16, fontWeight: FontWeight.bold),
-    headlineLarge: TextStyle(
-        color: lightTextColor, fontSize: 18, fontWeight: FontWeight.bold),
-    bodySmall: TextStyle(
-        color: lightTextColor, fontSize: 8, fontWeight: FontWeight.w500),
-    bodyMedium: TextStyle(
-        color: lightTextColor, fontSize: 12, fontWeight: FontWeight.w500),
-    bodyLarge: TextStyle(
-        color: lightTextColor, fontSize: 14, fontWeight: FontWeight.w500),
+    headlineSmall: TextStyle(color: lightTextColor, fontSize: 14, fontWeight: FontWeight.bold),
+    headlineMedium: TextStyle(color: lightTextColor, fontSize: 16, fontWeight: FontWeight.bold),
+    headlineLarge: TextStyle(color: lightTextColor, fontSize: 18, fontWeight: FontWeight.bold),
+    bodySmall: TextStyle(color: lightTextColor, fontSize: 8, fontWeight: FontWeight.w500),
+    bodyMedium: TextStyle(color: lightTextColor, fontSize: 12, fontWeight: FontWeight.w500),
+    bodyLarge: TextStyle(color: lightTextColor, fontSize: 14, fontWeight: FontWeight.w500),
   ),
 );
 

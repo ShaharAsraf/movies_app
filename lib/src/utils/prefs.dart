@@ -26,8 +26,7 @@ class PrefsUtils {
 
   static String? getString(String key) => _sp.getString(key);
 
-  static String getStringOrDefault(String key, String defaultValue) =>
-      _sp.getString(key) ?? defaultValue;
+  static String getStringOrDefault(String key, String defaultValue) => _sp.getString(key) ?? defaultValue;
 
   static Map getMapOrEmpty(String key) {
     String? value = _sp.getString(key);
@@ -51,10 +50,8 @@ class PrefsUtils {
 
 class Prefs {
   //----------------------getters----------------------
-  static Map lastRequest(String url) =>
-      PrefsUtils.getMapOrEmpty('$kLastRequest$url');
-  static String get themeMode =>
-      PrefsUtils.getStringOrDefault(kThemeMode, ThemeMode.dark.name);
+  static Map lastRequest(String url) => PrefsUtils.getMapOrEmpty('$kLastRequest$url');
+  static String get themeMode => PrefsUtils.getStringOrDefault(kThemeMode, ThemeMode.dark.name);
 
   static List<Movie> get storedMovies {
     final a = json.decode(PrefsUtils.getString(kMovies) ?? '[]');
@@ -68,17 +65,14 @@ class Prefs {
   }
 
   //----------------------setters----------------------
-  static Future<bool> storeLastRequest(String url, Map value) =>
-      PrefsUtils.setMap('$kLastRequest$url', value);
+  static Future<bool> storeLastRequest(String url, Map value) => PrefsUtils.setMap('$kLastRequest$url', value);
 
-  static Future<bool> setThemeMode(String value) =>
-      PrefsUtils.setString(kThemeMode, value);
+  static Future<bool> setThemeMode(String value) => PrefsUtils.setString(kThemeMode, value);
 
   static Future<bool> setMovies(List movies) {
     final List stored = {...storedMovies, ...movies}.toList();
     return PrefsUtils.setString(kMovies, json.encode(stored));
   }
 
-  static Future<bool> addFavMovie(Movie movie) =>
-      PrefsUtils.setString(kMovies, json.encode([...storedMovies, movie]));
+  static Future<bool> addFavMovie(Movie movie) => PrefsUtils.setString(kMovies, json.encode([...storedMovies, movie]));
 }

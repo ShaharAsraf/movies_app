@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
         return CupertinoPageRoute(
           builder: (BuildContext context) {
             final movie = settings.arguments as Movie?;
-            return  MovieScreen(movie:movie);
+            return MovieScreen(movie: movie);
           },
         );
       case '/':

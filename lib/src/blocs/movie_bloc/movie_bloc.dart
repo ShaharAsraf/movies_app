@@ -1,10 +1,13 @@
 import 'package:flutter/cupertino.dart';
+import 'package:injectable/injectable.dart';
 import 'package:movies_app/src/models/movie/movie.dart';
 import 'package:movies_app/src/network/requests.dart';
 import 'package:movies_app/src/utils/enums.dart';
 import 'package:movies_app/src/utils/prefs.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:collection/collection.dart';
 
+@injectable
 class MovieBloc {
   static MovieBloc? instance;
   factory MovieBloc() {
@@ -18,8 +21,7 @@ class MovieBloc {
   MovieBloc._() : super();
 
   final Requests requests = Requests();
-  final ValueNotifier<MoviesFilter> filterNotifier =
-  ValueNotifier<MoviesFilter>(MoviesFilter.values.first);
+  final ValueNotifier<MoviesFilter> filterNotifier = ValueNotifier<MoviesFilter>(MoviesFilter.values.first);
   int page = 1;
   int totalPages = 10;
   bool isLoading = false;
@@ -49,9 +51,7 @@ class MovieBloc {
       if (total != null) {
         totalPages = total;
       }
-      final List<Movie> movies = (response['results'] as List? ?? [])
-          .map((e) => Movie.fromJson(e))
-          .toList();
+      final List<Movie> movies = (response['results'] as List? ?? []).map((e) => Movie.fromJson(e)).toList();
       if (pagination) {
         _moviesSubject.sink.add([..._moviesSubject.value ?? [], ...movies]);
       } else {
@@ -81,5 +81,21 @@ class MovieBloc {
     page = 1;
     totalPages = 10;
     isLoading = false;
+  }
+
+  Future<String?> getMovieTrailer(Movie? movie) async {
+    if (movie == null || movie.id == null) {
+      return null;
+    }
+    try {
+      final res = await requests.fetchMovieTrailer(movie.id!);
+      if (res != null && res['results'] != null) {
+        final trailer = (res['results'] as List).firstWhereOrNull((e) => e['type'] == 'Trailer');
+        return trailer['key'];
+      }
+      return null;
+    } catch (e) {
+      return null;
+    }
   }
 }

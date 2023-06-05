@@ -38,8 +38,7 @@ class Movie {
     return Movie(
       adult: json['adult'],
       backdropPath: json['backdrop_path'],
-      genreIds:
-          (json['genre_ids'] as List? ?? []).map((e) => e as int).toList(),
+      genreIds: (json['genre_ids'] as List? ?? []).map((e) => e as int).toList(),
       id: json['id'],
       originalLanguage: json['original_language'],
       originalTitle: json['original_title'],
