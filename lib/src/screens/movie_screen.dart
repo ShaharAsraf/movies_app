@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:movies_app/src/blocs/movie_bloc/movie_bloc_provider.dart';
 import 'package:movies_app/src/models/movie/movie.dart';
@@ -84,7 +85,7 @@ class _MovieScreenState extends State<MovieScreen> {
           FutureBuilder(
             future: MovieBlocProvider.of(context).getMovieTrailer(widget.movie),
             builder: (context, snapshot) {
-              if (snapshot.data == null || snapshot.connectionState == ConnectionState.waiting) {
+              if (snapshot.data == null || snapshot.connectionState == ConnectionState.waiting || kIsWeb) {
                 return const SizedBox();
               }
               return GestureDetector(
