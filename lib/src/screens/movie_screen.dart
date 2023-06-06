@@ -82,9 +82,9 @@ class _MovieScreenState extends State<MovieScreen> {
               fit: BoxFit.cover,
             ),
           ),
-          FutureBuilder(
+          FutureBuilder<String?>(
             future: MovieBlocProvider.of(context).getMovieTrailer(widget.movie),
-            builder: (context, snapshot) {
+            builder: (BuildContext context, AsyncSnapshot<String?> snapshot) {
               if (snapshot.data == null || snapshot.connectionState == ConnectionState.waiting || kIsWeb) {
                 return const SizedBox();
               }

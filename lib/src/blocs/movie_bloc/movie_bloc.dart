@@ -60,6 +60,7 @@ class MovieBloc {
       Prefs.setMovies(movies);
       isLoading = false;
     } catch (e) {
+      isLoading = false;
       _moviesSubject.sink.add(Prefs.storedMovies);
     }
   }
